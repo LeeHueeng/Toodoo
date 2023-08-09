@@ -37,6 +37,7 @@ export default class App extends Component {
   handleClick = (id) => {
     const newTodoData = this.state.todoData.filter((data) => data.id !== id);
     console.log("noeTodoData", newTodoData);
+    this.setState({todoData: newTodoData})
   };
 
   render() {
@@ -46,7 +47,7 @@ export default class App extends Component {
           <div className="title">
             <h1>할 일 목록</h1>
           </div>
-          {this.todoData.map((data) => (
+          {this.state.todoData.map((data) => (
             <div style={this.getStyle()} key={data.id}>
               <input type="checkbox" defaultChecked={false} />
               {data.title}
